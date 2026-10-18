@@ -1,7 +1,7 @@
 <template>
   <div class="header-inner">
     <div class="header-left">
-      <el-icon :size="24" color="#409EFF"><Collection /></el-icon>
+      <el-icon :size="24" class="app-logo"><Collection /></el-icon>
       <span class="app-title">EasyToDo</span>
 
       <el-dropdown v-if="store.boards.length > 0" @command="handleBoardCommand">
@@ -83,6 +83,7 @@
     </div>
 
     <div class="header-right">
+      <el-button :icon="Setting" @click="settingsVisible = true">设置</el-button>
       <el-button :icon="Download" @click="handleExport">导出</el-button>
       <el-upload
         accept="application/json"
@@ -111,12 +112,15 @@
       <el-button type="primary" @click="confirmNewBoard">确定</el-button>
     </template>
   </el-dialog>
+
+  <SettingsDialog v-model="settingsVisible" />
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useBoardStore } from '../stores/boardStore.js'
 import { exportToJSON, importFromJSON } from '../utils/exportImport.js'
+import SettingsDialog from './SettingsDialog.vue'
 import {
   Collection,
   ArrowDown,
@@ -212,6 +216,10 @@ async function handleReset() {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.app-logo {
+  color: var(--el-color-primary);
 }
 
 .app-title {

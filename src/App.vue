@@ -27,7 +27,11 @@ onMounted(async () => {
 <style scoped>
 .app-container {
   height: 100vh;
-  background-color: #f5f7fa;
+  background-color: var(--app-page-bg);
+  background-image: var(--app-page-bg-image);
+  background-size: var(--app-bg-size);
+  background-position: center;
+  background-repeat: var(--app-bg-repeat);
 }
 
 .app-header {

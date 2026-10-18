@@ -193,7 +193,9 @@ async function onCardDrop(event) {
   max-height: calc(100vh - 130px);
   display: flex;
   flex-direction: column;
-  background-color: #f0f2f5;
+  background-color: var(--app-list-bg);
+  -webkit-backdrop-filter: var(--app-list-backdrop);
+  backdrop-filter: var(--app-list-backdrop);
 }
 
 .list-header {
