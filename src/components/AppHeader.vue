@@ -131,7 +131,6 @@ import {
   Download,
   Upload,
   RefreshRight,
-  Setting,
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
@@ -139,7 +138,6 @@ const store = useBoardStore()
 const localSearch = ref('')
 const newBoardDialogVisible = ref(false)
 const newBoardTitle = ref('')
-const settingsVisible = ref(false)
 
 function onSearch() {
   store.setSearchKeyword(localSearch.value)
